@@ -298,17 +298,6 @@ public class ObjectFade : MonoBehaviour
                             else newColor.a = fadeCheck.fadeTo;
                             material.color = newColor;
                         }
-                        for (int j = 0; j < otherObjects[i].transform.childCount; j++)
-                        {
-                            foreach (Material material in otherObjects[i].transform.GetChild(j).GetComponent<Renderer>().materials)
-                            {
-                                MaterialObjectFade.MakeFade(material);
-                                Color newColor = material.color;
-                                if (customFade) newColor.a = fadeTo;
-                                else newColor.a = fadeCheck.fadeTo;
-                                material.color = newColor;
-                            }
-                        }
                     }
                     faded = true;
                     
@@ -334,16 +323,6 @@ public class ObjectFade : MonoBehaviour
                                     Color newColor = material.color;
                                     newColor.a = 1;
                                     material.color = newColor;
-                                }
-                                for (int j = 0; j < otherObjects[i].transform.childCount; j++)
-                                {
-                                    foreach (Material material in otherObjects[i].transform.GetChild(j).GetComponent<Renderer>().materials)
-                                    {
-                                        MaterialObjectFade.MakeOpaque(material);
-                                        Color newColor = material.color;
-                                        newColor.a = 1;
-                                        material.color = newColor;
-                                    }
                                 }
                             }
                             else otherObjects[i].GetComponent<ObjectFade>().faded = true;
