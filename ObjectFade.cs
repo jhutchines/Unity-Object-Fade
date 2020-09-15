@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,7 +73,7 @@ public class ObjectFade : MonoBehaviour
 
         if (fadeType == FadeType.Whole)
         {
-            if (fadeCheck.objectHit == highestParent)
+            if (fadeCheck.parentObjectHit == highestParent)
             {
                 if (!faded)
                 {
