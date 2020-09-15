@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FadeCheck : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject objectHit;
     [Range(0.0f, 1.0f)]
     public float fadeTo;
