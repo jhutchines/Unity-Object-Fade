@@ -2,13 +2,13 @@
 
 ### Info:
 These scripts make objects that are directly between the camera and the player transparent so the player is always in view. Currently, there are four modes:
-#
+###
 Single: Only makes this object transparent when between the camera and the player.
-#
+###
 Whole: Makes this object, all siblings, and all parents transparent (does not affect childs or childs of siblings).
-#
+###
 Parent: Makes this object and the parent object transparent.
-#
+###
 Multiple: Makes this object and other selected objects transparent.
 
 #
