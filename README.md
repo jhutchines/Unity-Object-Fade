@@ -1,13 +1,13 @@
 # Unity-Object-Fade
 
-#Info:
+### Info:
 These scripts make objects that are directly between the camera and the player transparent so the player is always in view. Currently, there are two modes:
 Single: Only makes this object transparent when between the camera and the player.
 Whole: Makes this object, all siblings, and all parents transparent (does not affect childs or childs of siblings).
 
 #
 
-#How to use:
+### How to use:
 Download and add all scripts to your Unity project. Add the FadeCheck script to your player object, and add the ObjectFade script to any object you want to turn transparent when
 blocking the camera's view of the player.
 The ObjectFade script looks for a Game Object called Player by default. If your player object is not called Player, you can change it from the ObjectFade script on line 27:
@@ -19,7 +19,7 @@ The MaterialObjectFade script does not need to be attached to any Game Object. I
   
 #
   
-#How it works:
+### How it works:
 A ray is cast from the main camera to the player object. If any object blocks this ray, then it is blocking the camera from seeing the player. The FadeCheck script checks to see
 if the object that is blocking the view of the player has the ObjectFade script attached to it. If it does, it then checks to see if that object has the Fade Type set to Whole. If
 it is Whole, then the FadeCheck script checks to see if that object has a parent. If it does, it checks to see if that parent has a parent. And so on, until there is no parent
