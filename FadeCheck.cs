@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,8 @@ public class FadeCheck : MonoBehaviour
 {
     [HideInInspector]
     public GameObject objectHit;
+    [HideInInspector]
+    public GameObject parentObjectHit;
     [Range(0.0f, 1.0f)]
     public float fadeTo;
 
@@ -17,24 +19,16 @@ public class FadeCheck : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, direction);
         if (Physics.Raycast(ray, out hit, 50f))
         {
-            if (hit.transform.gameObject.GetComponent<ObjectFade>() != false)
-            {
-                if (hit.transform.gameObject.GetComponent<ObjectFade>().fadeType == ObjectFade.FadeType.Single)
-                {
-                    objectHit = hit.transform.gameObject;
-                }
+            
+            objectHit = hit.transform.gameObject;
 
-                if (hit.transform.gameObject.GetComponent<ObjectFade>().fadeType == ObjectFade.FadeType.Whole)
-                {
-                    GameObject findParent = hit.transform.gameObject;
-                    while (findParent.transform.parent != null)
-                    {
-                        findParent = findParent.transform.parent.gameObject;
-                    }
-                    objectHit = findParent;
-                }
+            GameObject findParent = hit.transform.gameObject;
+            while (findParent.transform.parent != null)
+            {
+                findParent = findParent.transform.parent.gameObject;
             }
-            else objectHit = hit.transform.gameObject;
+            parentObjectHit = findParent;
+
             Debug.DrawLine(Camera.main.transform.position, hit.transform.position, Color.green);
         }
         Debug.DrawRay(Camera.main.transform.position, direction * 50);
